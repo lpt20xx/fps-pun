@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Launcher : MonoBehaviourPunCallbacks
+public class GameLauncher : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     private void Start()
@@ -18,6 +18,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
     }
 
