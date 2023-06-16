@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
 
 public class GameLauncher : MonoBehaviourPunCallbacks
 {
+    
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -22,9 +25,9 @@ public class GameLauncher : MonoBehaviourPunCallbacks
         Debug.Log("Joined Lobby");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
 }
+
+
+
