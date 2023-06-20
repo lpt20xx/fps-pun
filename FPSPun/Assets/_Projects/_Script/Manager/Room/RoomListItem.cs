@@ -8,7 +8,7 @@ public class RoomListItem : MonoBehaviour
 {
     [SerializeField] private TMP_Text roomName;
 
-    private RoomInfo roomInfo;
+    public RoomInfo roomInfo;
     public void SetUp(RoomInfo info)
     {
         roomInfo = info;
@@ -17,6 +17,6 @@ public class RoomListItem : MonoBehaviour
 
     public void OnClick()
     {
-
+        RoomManager.Instance.JoinRoom(roomInfo);
     }
 }
