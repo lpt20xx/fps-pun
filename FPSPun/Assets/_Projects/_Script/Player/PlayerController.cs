@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public PhotonView playerPhotonView;
 
+
     [Header("-------Equip Item-------")]
     [SerializeField] private PlayerItems playerItems;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         rb = GetComponent<Rigidbody>();
         playerPhotonView = GetComponent<PhotonView>();
+        
     }
 
     private void Start()
