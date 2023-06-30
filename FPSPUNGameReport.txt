@@ -1,0 +1,59 @@
+					The report for Moboard Games remote test! 
+						Time used: 24 hours
+Task 1: Basic Networking Setup
+
+1. Create a new project
+
+2. Import the Photon PUN package
+- Create a new Photon PUN app on Photon Dashboard
+- Import Photon PUN from Unity Asset Store into the project
+- Enter Photon App ID in Unity Project
+
+3. Create a simple scene with a networked player.
+- Create PlayerManager and PlayerController Script
+- Create PlayerController prefab and add PlayerController component
+- Create PlayerManager prefab and add PlayerManager component
+
+Task 2: Room Creation and Joining
+1. Implement a UI including 4 buttons and 1 input field:
+- Player Name Input Field to Enter Player Name
+- Join Room: Enter the room name or choose the room in the rooms list
+- Create Room: Create a new room with a random name
+- Create Room Menu: Create a new room with a custom name
+- Quit Game: Quit the game
+
+2. Create Room
+- Create RoomManager Script 
+- Inheritance MonoBehaviorPunCallbacks
+- Random name for room function
+- CreateRoom function
+
+3.Join Room
+- Enter the room name or choose the room in the rooms list
+- When entering the room name or pressing the button of the room PhotonNetwork allowed the Player to join the room with the name that has been chosen
+ 
+Task 4: Additional Gameplay Functionality
+1.Implement a shooting mechanism for the player
+- Build a Gun mechanic for the player controller Object: Create ItemInfo Scriptable Object
+- Shooting gun with Raycast and add BulletTracer prefabs (with Trail Renderer) to show the projectiles
+2.Player's Health
+- Add Script Player Take Damage: Set max health and current health value and show it on the screen by the health bar
+- When the player has been hit with the bullet, the player will take damage, reducing the player's health points. When the health reaches zero, the function "Die" in PlayerManager Script will be called, destroy the current controller and create a new controller which will respawn at a designated respawn point in the SpawnManager game object in the scene.
+
+Task 5: Documentation and Explanation
+*How to build and run the project
+- Run the MainMenu scene. After Loading for a few seconds, the Title Menu will show up
+- The player can change the name in the input field
+- Press the "Join Room" button to join the specified room
+- Press the "Create Room" or "Create Room Menu" button to create a new room
+- Press the "Quit Game" button to quit the game
+- When player is in room, the master client can press the "Start Game" button to start the game with the others player in the room
+- After the game started, the player uses W, A, S, and D keys to move, mouse to look around and left mouse button to fire. 1, 2 key or scroll wheel mouse to switch weapons
+- If the project request for PUN AppID, please use this PUN AppID:
+3c6a871b-eaa4-4c8c-b381-ebd75b7aa971
+
+
+Video Gameplay: https://youtu.be/8aCE6yl77uQ
+
+Thanks for reviewing my submission!
+

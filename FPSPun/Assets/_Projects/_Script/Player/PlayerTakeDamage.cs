@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class PlayerTakeDamage : MonoBehaviour, IDamageable
 {
-    PlayerController playerController;
+    private PlayerController playerController;
 
-    PlayerManager playerManager;
+    private PlayerManager playerManager;
 
     [Header("-------Player Health-------")]
     private const float maxHealth = 100f;
     private float currentHealth = maxHealth;
+
+    [SerializeField] private Image healthBarImage;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
@@ -35,7 +39,9 @@ public class PlayerTakeDamage : MonoBehaviour, IDamageable
         Debug.Log("Took Damage: " + damage);
 
         currentHealth -= damage;
-        
+
+        healthBarImage.fillAmount = currentHealth / maxHealth;
+
         if(currentHealth <= 0) 
         {
             Die();

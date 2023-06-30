@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Vector3 smoothMoveVelocity;
     private Vector3 moveAmount;
 
-    Rigidbody rb;
+    private Rigidbody rb;
 
     public PhotonView playerPhotonView;
 
+    [SerializeField] private GameObject playerUI;
 
     [Header("-------Equip Item-------")]
     [SerializeField] private PlayerItems playerItems;
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
+            Destroy(playerUI);
         }
     }
 
@@ -63,6 +65,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         SwitchWeapon();
         UseWeapon();
+
+        if(transform.position.y < -10f) //Die if player fall out the world
+        {
+            PlayerManager.Instance.Die();
+        }
     }
 
     private void UseWeapon()
@@ -128,6 +135,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
+
+        //lock cursor
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Move()
